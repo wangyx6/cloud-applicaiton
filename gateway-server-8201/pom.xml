@@ -87,6 +87,12 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <!-- sentinel进行限流、预热等控制 -->
+        <!--sentinel 核⼼环境 依赖-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
         <!--链路追踪-->
         <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
