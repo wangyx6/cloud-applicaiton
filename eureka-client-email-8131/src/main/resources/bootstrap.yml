@@ -15,20 +15,21 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl  #避免将驼峰命名转换为下划线命名
   cloud:
-    config: # config客户端配置，和ConfigServer通信，并告知ConfigServer希望获取的配置信息在那个文件中
-      name: client-email-config # 配置文件名称
-      profile: dev # 后缀名称
-      label: master #分支名称
-      uri: http://192.168.125.2:8021/ # ConfigServer配置中心地址
-ribbon:
-  ReadTimeout: 120000
-eureka:
-  client:
-    # 配置eureka server的路径， 可以把eureka集群中的所有url都填写进来，也可以只写一台，因为各个eureka server可以同步注册表
-    service-url:
-      defaultZone: http://cloud.eureka.serverA:8001/eureka/,http://cloud.eureka.serverB:8002/eureka/
-    instance:
-      prefer-ip-address: true # 服务实例中显示ip，而不是显示主机名
-      instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+    nacos:
+      discovery:
+        # 配置Nacos sercer地址
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        # 默认不指定Namespace,即为public
+        #namespace:
+        file-extension: yaml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
 
 

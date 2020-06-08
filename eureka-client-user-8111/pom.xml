@@ -20,12 +20,16 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <!-- 引入eureka client相关内容 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
+<!--        &lt;!&ndash; 引入eureka client相关内容 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+<!--        </dependency>-->
 
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
         <!-- 引入open-fegin组件，用于远程调用 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

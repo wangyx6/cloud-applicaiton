@@ -26,10 +26,16 @@
             <artifactId>mail</artifactId>
             <version>1.5.0-b01</version>
         </dependency>
-        <!-- 引入eureka client相关内容 -->
+<!--        &lt;!&ndash; 引入eureka client相关内容 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+<!--        </dependency>-->
+
+        <!-- 将eureka client替换为nacos -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
         <!-- 引入open-fegin组件，用于远程调用 -->
