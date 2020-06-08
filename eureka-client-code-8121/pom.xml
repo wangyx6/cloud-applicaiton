@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>validation</artifactId>
+    <artifactId>eureka-client-code-8121</artifactId>
 
 
     <dependencies>
