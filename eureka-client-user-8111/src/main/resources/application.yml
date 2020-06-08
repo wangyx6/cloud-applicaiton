@@ -1,0 +1,28 @@
+server:
+  port: 8111
+spring:
+  application:
+    name: service-client-user
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://mysql.algou.com:3306/lagou?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+  jpa:
+    database: MySQL
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl  #避免将驼峰命名转换为下划线命名
+eureka:
+  client:
+    # 配置eureka server的路径， 可以把eureka集群中的所有url都填写进来，也可以只写一台，因为各个eureka server可以同步注册表
+    service-url:
+      defaultZone: http://cloud.eureka.serverA:8001/eureka/,http://cloud.eureka.serverB:8002/eureka/
+    instance:
+      prefer-ip-address: true # 服务实例中显示ip，而不是显示主机名
+      instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+ribbon:
+  ReadTimeout: 120000
+
+

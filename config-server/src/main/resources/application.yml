@@ -1,0 +1,34 @@
+server:
+  port: 8021
+# 注册到eureka服务中心
+eureka:
+  client:
+    service-url:
+      # 注册到集群，就把多个EurekaServer地址使用逗号连接起来即可；注册到单实例（非集群模式），那就写一个就ok
+      defaultZone: http://cloud.eureka.serverA:8001/eureka/,http://cloud.eureka.serverB:8002/eureka/
+  instance:
+    prefer-ip-address: true # 服务实例中显示ip，而不是显示主机名
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+spring:
+  application:
+    name: cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/wangyx6/cloud-config-repo.git
+          username: wangyx6
+          password: 041013hhxx,,
+          search-paths:
+            - cloud-config-repo
+      label: master
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  # 暴露健康接口的细节
+  endpoint:
+    health:
+      show-details: always
+
