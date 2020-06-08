@@ -3,11 +3,12 @@ package com.rachel.code.service.impl;
 import com.rachel.common.po.AuthCodePO;
 import com.rachel.common.utils.RandomCodeUtil;
 import com.rachel.code.dao.VerifyCodeDao;
-import com.rachel.code.service.VerifyCodeService;
-import org.springframework.stereotype.Service;
+import com.rachel.common.service.VerifyCodeService;
+import org.apache.dubbo.config.annotation.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
+
 
 @Service
 public class VerifyCodeServiceImpl implements VerifyCodeService {

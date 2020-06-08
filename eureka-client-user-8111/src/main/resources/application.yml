@@ -1,11 +1,13 @@
 server:
   port: 8111
 spring:
+  mail:
+    allow-bean-definition-overriding: true
   application:
     name: service-client-user
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://mysql.algou.com:3306/lagou?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://mysql.lagou.com:3306/lagou?useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456
   jpa:
@@ -18,11 +20,24 @@ spring:
     nacos:
       discovery:
         # 配置Nacos sercer地址
-        server-addr: 12.0.0.1:8848
+        server-addr: 127.0.0.1:8848
 management:
   endpoints:
     web:
       exposure:
         include: '*'
-
+dubbo:
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: com.rachel.user.service
+  protocol:
+    # 配置为dubbo协议
+    name: dubbo
+    port: -1
+  registry:
+    address: spring-cloud://localhost
+  consumer:
+    timeout: 3000
+  provider:
+    timeout: 3000
 

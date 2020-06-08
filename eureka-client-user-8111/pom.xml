@@ -16,7 +16,7 @@
         <!-- 引入公共的common信息 -->
         <dependency>
             <groupId>com.rachel</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>service-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
@@ -31,9 +31,15 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
         <!-- 引入open-fegin组件，用于远程调用 -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-openfeign</artifactId>-->
+<!--        </dependency>-->
+
+        <!-- 将feign替换为dubbo -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
         </dependency>
     </dependencies>
 </project>

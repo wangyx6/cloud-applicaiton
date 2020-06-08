@@ -1,11 +1,11 @@
 package com.rachel.user.service.impl;
 
 import com.rachel.common.po.UserPO;
+import com.rachel.common.service.UserService;
 import com.rachel.user.dao.UserDao;
-import com.rachel.user.service.UserService;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 

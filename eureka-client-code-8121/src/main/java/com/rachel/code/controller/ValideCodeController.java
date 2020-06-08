@@ -1,8 +1,8 @@
 package com.rachel.code.controller;
 
-import com.rachel.code.fegin.EmailFeignClient;
-import com.rachel.code.service.VerifyCodeService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.rachel.common.service.EmailService;
+import com.rachel.common.service.VerifyCodeService;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/code")
 public class ValideCodeController {
 
-    @Autowired
+    @Reference(check = false)
     private VerifyCodeService verifyCodeService;
 
-    @Autowired
-    private EmailFeignClient emailFeignClient;
+    @Reference
+    private EmailService emailService;
 
     @GetMapping("/create/{email}")
     public Boolean getVerifyCode(@PathVariable String email){
         String code = verifyCodeService.createEmailCode(email);
-        return emailFeignClient.sendEmailCode(email, code);
+        return emailService.sendAuthCodeEamil(email, code);
     }
 
     @GetMapping("/validate/{email}/{code}")

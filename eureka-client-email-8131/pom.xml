@@ -17,7 +17,7 @@
         <!-- 引入公共的common信息 -->
         <dependency>
             <groupId>com.rachel</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>service-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <!-- 引入javaMail相关jar包 -->
@@ -45,6 +45,12 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <!-- 将feign替换为dubbo -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
         </dependency>
     </dependencies>
 </project>

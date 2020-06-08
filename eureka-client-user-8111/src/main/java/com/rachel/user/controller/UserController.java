@@ -2,27 +2,30 @@ package com.rachel.user.controller;
 
 import com.rachel.common.po.UserPO;
 import com.rachel.common.po.UserToken;
-import com.rachel.user.fegin.CodeFeignClient;
-import com.rachel.user.service.UserService;
-import com.rachel.user.service.UserTokenService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import com.rachel.common.service.UserService;
+import com.rachel.common.service.UserTokenService;
+import com.rachel.common.service.VerifyCodeService;
+import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private CodeFeignClient codeFeignClient;
-    @Autowired
+    @Reference(check = false)
+    private VerifyCodeService verifyCodeService;
+    @Reference
     private UserService userService;
-    @Autowired
+    @Reference
     private UserTokenService userTokenService;
 
     @GetMapping("/register/{email}/{password}/{code}")
     public Boolean registUser(@PathVariable String email, @PathVariable String password, @PathVariable String code){
         // 验证验证码是否正确
-        Integer result = codeFeignClient.validateCode(email, code);
+        Integer result = verifyCodeService.authCodeByEmail(email, code);
         if(result != 0){
             return false;
         }

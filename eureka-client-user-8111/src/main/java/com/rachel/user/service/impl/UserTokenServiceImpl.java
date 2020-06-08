@@ -2,10 +2,10 @@ package com.rachel.user.service.impl;
 
 import com.rachel.common.po.UserToken;
 import com.rachel.user.dao.UserTokenDao;
-import com.rachel.user.service.UserTokenService;
+import com.rachel.common.service.UserTokenService;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.UUID;

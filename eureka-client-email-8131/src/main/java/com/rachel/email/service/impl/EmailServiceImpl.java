@@ -1,9 +1,9 @@
 package com.rachel.email.service.impl;
 
+import com.rachel.common.service.EmailService;
 import com.rachel.email.factory.MailFactory;
-import com.rachel.email.service.EmailService;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 public class EmailServiceImpl implements EmailService {
