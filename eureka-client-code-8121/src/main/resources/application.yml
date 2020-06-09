@@ -37,6 +37,7 @@ dubbo:
   registry:
     address: spring-cloud://localhost
   consumer:
-    timeout: 3000
+    timeout: 30000
   provider:
-    timeout: 3000
+    timeout: 30000
+

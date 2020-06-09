@@ -28,6 +28,24 @@ spring:
       discovery:
         # 配置Nacos sercer地址
         server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8088
+        port: 8719
+dubbo:
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: com.rachel.user.service
+  protocol:
+    # 配置为dubbo协议
+    name: dubbo
+    port: -1
+  registry:
+    address: spring-cloud://localhost
+  consumer:
+    timeout: 3000
+  provider:
+    timeout: 3000
 
 
 
